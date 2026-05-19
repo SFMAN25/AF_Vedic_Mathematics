@@ -31,12 +31,35 @@
             overflow: hidden;
         }
 
+        /* تنسيق لوجو الأكاديمية بأسلوب النيو-بروتاليزم */
+        .logo-container {
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .academy-logo {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border: 4px solid #0D1B2A;
+            box-shadow: 6px 6px 0px #0D1B2A;
+            transition: transform 0.2s ease;
+        }
+
+        .academy-logo:hover {
+            transform: scale(1.05) rotate(-3deg);
+        }
+
         header h1 {
             font-size: 5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             line-height: 1;
             margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
         }
 
         header p {
@@ -47,6 +70,8 @@
             display: inline-block;
             padding: 5px 15px;
             margin-top: 10px;
+            position: relative;
+            z-index: 1;
         }
 
         /* الرموز الخلفية العشوائية الجمالية */
@@ -56,6 +81,12 @@
             color: rgba(13, 27, 42, 0.08);
             z-index: 0;
             user-select: none;
+            animation: float 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-15px); }
         }
 
         /* الحاوية الرئيسية للكروت */
@@ -64,7 +95,7 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
             max-width: 1200px;
-            margin: 0 auto 60px auto;
+            margin: 0 auto 50px auto;
         }
 
         /* ستايل الكارت النيو-بروتاليزم */
@@ -80,10 +111,10 @@
             transition: transform 0.1s ease, box-shadow 0.1s ease;
         }
 
-        /* تأثير الضغط الخفيف للكارت للحفاظ على واقعية الأسلوب */
+        /* تأثير الحركة عند الحوم فوق الكارت */
         .card:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 12px 12px 0px #0D1B2A;
+            transform: translate(-4px, -4px);
+            box-shadow: 14px 14px 0px #0D1B2A;
         }
 
         /* الأرقام الضخمة داخل الكروت */
@@ -122,12 +153,81 @@
             border-radius: 0px;
         }
 
+        /* قسم التحدي التفاعلي الجديد */
+        .interactive-section {
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            background-color: #E0DBCE;
+            border: 3px solid #0D1B2A;
+            box-shadow: 10px 10px 0px #0D1B2A;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .interactive-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .quiz-box {
+            background-color: #FFFDF9;
+            border: 3px solid #0D1B2A;
+            padding: 25px;
+            margin-top: 20px;
+            display: inline-block;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 6px 6px 0px #0D1B2A;
+        }
+
+        .quiz-question {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .quiz-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .option-btn {
+            background-color: #FFFDF9;
+            border: 3px solid #0D1B2A;
+            padding: 10px 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px #0D1B2A;
+            transition: all 0.1s ease;
+        }
+
+        .option-btn:hover {
+            background-color: #FFD166;
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #0D1B2A;
+        }
+
+        .option-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px #0D1B2A;
+        }
+
+        .quiz-feedback {
+            margin-top: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            min-height: 30px;
+        }
+
         /* أزرار الحجز الخارقة */
         .booking-btn {
             background-color: #FFD166; /* لون فاقع متباين لشد الانتباه */
             color: #0D1B2A;
             border: 3px solid #0D1B2A;
-            box-shadow: 5px 5px 0px #0D1B2A;
+            box-shadow: 6px 6px 0px #0D1B2A;
             text-decoration: none;
             display: block;
             text-align: center;
@@ -141,8 +241,14 @@
 
         .booking-btn:hover {
             background-color: #FFFDF9;
-            box-shadow: 2px 2px 0px #0D1B2A;
-            transform: translate(3px, 3px);
+            box-shadow: 8px 8px 0px #0D1B2A;
+            transform: translate(-2px, -2px);
+        }
+
+        /* تفاعل الضغط الحقيقي للزر الميكانيكي النيو-بروتاليزم */
+        .booking-btn:active {
+            transform: translate(6px, 6px);
+            box-shadow: 0px 0px 0px #0D1B2A;
         }
 
         .booking-btn span {
@@ -173,21 +279,44 @@
             header h1 { font-size: 3rem; }
             .card-number { font-size: 4.5rem; }
             body { padding: 10px; }
+            .interactive-section h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر الرئيسي مع رموز الرياضة الخلفية -->
+    <!-- الهيدر الرئيسي مع اللوجو ورموز الرياضة الخلفية -->
     <header>
         <div class="math-bg-symbol" style="top: -10px; left: 5%;">√x</div>
         <div class="math-bg-symbol" style="bottom: -20px; right: 10%;">Σ</div>
         <div class="math-bg-symbol" style="top: 20px; right: 30%;">π</div>
+        
+        <!-- اللوجو الجديد المطلق -->
+        <div class="logo-container">
+            <img src="https://files.catbox.moe/z7c7hw.jpeg" alt="MATH_VEDIC Logo" class="academy-logo">
+        </div>
+        
         <h1>MATH_VEDIC</h1>
         <p>الأكاديمية الأسرع عالمياً في الحساب الذهني الخارق</p>
     </header>
 
-    <!-- حاوية الكروت -->
+    <!-- معمل السرعة الذهنية - القسم التفاعلي الجديد -->
+    <section class="interactive-section">
+        <h2>⚡ معمل اختبار السرعة الفيدية ⚡</h2>
+        <p>شاهد قوة الرياضيات الهندية بنفسك، كم يستغرق عقلك لحساب مربع العدد 35؟ (35 × 35)</p>
+        
+        <div class="quiz-box">
+            <div class="quiz-question">ما هو الناتج الصحيح في ثانية واحدة؟</div>
+            <div class="quiz-options">
+                <button class="option-btn" onclick="checkAnswer(false, this)">1125</button>
+                <button class="option-btn" onclick="checkAnswer(true, this)">1225</button>
+                <button class="option-btn" onclick="checkAnswer(false, this)">1325</button>
+            </div>
+            <div class="quiz-feedback" id="feedback"></div>
+        </div>
+    </section>
+
+    <!-- حاوية الكروت الثابتة بمحتواها القديم -->
     <main class="grid-container">
 
         <!-- الكارت الأول -->
@@ -239,6 +368,29 @@
         <h3>MATH_VEDIC 2026</h3>
         <p>امتلك العقل الحاسب الأسرع على الإطلاق وتفوق أكاديمياً وعقلياً.</p>
     </footer>
+
+    <!-- سكربت التفاعل الصغير والاختبار الفوري -->
+    <script>
+        function checkAnswer(isCorrect, element) {
+            const feedback = document.getElementById('feedback');
+            // إعادة تعيين الألوان للأزرار
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.style.backgroundColor = '#FFFDF9';
+            });
+
+            if (isCorrect) {
+                element.style.backgroundColor = '#4F772D'; // لون أخضر عند الإجابة الصحيحة
+                element.style.color = '#FFFDF9';
+                feedback.innerHTML = "🔥 عبقري! صحيحة تماماً! سر الفيدا: اضرب (3 × 4 = 12) ثم ضع بجانبها 25 ليصبح الناتج 1225 فورا!";
+                feedback.style.color = "#4F772D";
+            } else {
+                element.style.backgroundColor = '#E63946'; // لون أحمر عند الإجابة الخاطئة
+                element.style.color = '#FFFDF9';
+                feedback.innerHTML = "❌ حاول مجدداً! الفيدا تجعلك تعرف الإجابة الصحيحة في ثانية واحدة بدون حسابات معقدة.";
+                feedback.style.color = "#E63946";
+            }
+        }
+    </script>
 
 </body>
 </html>
